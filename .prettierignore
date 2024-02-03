@@ -1,0 +1,8 @@
+/build/
+
+/node_modules/
+
+graphql/types.ts
+
+package-lock.json
+
