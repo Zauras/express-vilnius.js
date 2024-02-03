@@ -1,9 +1,8 @@
-import { Request, Response } from "express";
+import { IReqExpress, IRespExpress } from "#/common/types";
+import { EHttpMethod } from "#/common/http-methods";
+import { HttpStatus } from "#/common/http-status";
 
-import { EHttpMethod } from "../utils";
-import { HttpStatus } from "../utils/http-status";
-
-type IApiServiceResponse = Promise<void | Response>;
+type IApiServiceResponse = Promise<void | IRespExpress>;
 
 type IHttpMethodHandler = () => IApiServiceResponse;
 
@@ -18,8 +17,8 @@ type IHttpMethodHandlersConfig = {
 };
 
 const httpMethodSwitch = async (
-  request: Request,
-  response: Response,
+  req: IReqExpress,
+  resp: IRespExpress,
   {
     getHandler,
     postHandler,
@@ -28,8 +27,8 @@ const httpMethodSwitch = async (
     deleteHandler,
     headHandler
   }: IHttpMethodHandlersConfig
-): Promise<Response | void | undefined> => {
-  const { method } = request;
+): Promise<IRespExpress | void | undefined> => {
+  const { method } = req;
 
   try {
     switch (method) {
@@ -55,10 +54,10 @@ const httpMethodSwitch = async (
         return await headHandler?.();
 
       default:
-        return response.status(HttpStatus.ClientError.NOT_FOUND_404).end();
+        return resp.status(HttpStatus.ClientError.NOT_FOUND_404).end();
     }
   } catch (exception) {
-    return response.status(HttpStatus.ServerError.INTERNAL_500).end();
+    return resp.status(HttpStatus.ServerError.INTERNAL_500).end();
   }
 };
 

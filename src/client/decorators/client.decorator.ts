@@ -1,4 +1,4 @@
-import { DSingleton } from "../../utils/decorators";
+import { DSingleton } from "#/common/decorators";
 
 function DClient(baseUriKey: string): ClassDecorator {
   return function (constructor: Function) {

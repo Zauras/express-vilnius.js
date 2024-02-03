@@ -1,5 +1,5 @@
 // Updated registerControllers function to support method-specific decorators
-import { Application, RequestHandler } from "express";
+import { Express, RequestHandler } from "express";
 
 /**
  * Usage:
@@ -7,7 +7,7 @@ import { Application, RequestHandler } from "express";
  *       app.use(express.json());
  *       registerControllers(app, [ExampleController]);
  */
-export function registerControllers(app: Application, controllers: any[]) {
+function registerControllers(app: Express, controllers: any[]) {
   controllers.forEach(Controller => {
     const instance = new Controller();
     const basePath: string = Reflect.getMetadata("path", Controller) || "";
@@ -27,3 +27,5 @@ export function registerControllers(app: Application, controllers: any[]) {
     });
   });
 }
+
+export { registerControllers };

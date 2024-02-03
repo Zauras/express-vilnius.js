@@ -1,7 +1,8 @@
 import "reflect-metadata";
-import { DSingleton } from "../../utils/decorators/singleton.decorator";
 
-export function DController(path: string): ClassDecorator {
+import { DSingleton } from "#/common/decorators";
+
+function DController(path: string): ClassDecorator {
   return function (constructor: Function) {
     Reflect.defineMetadata("path", path, constructor);
     if (!Reflect.hasMetadata("routes", constructor)) {
@@ -11,3 +12,5 @@ export function DController(path: string): ClassDecorator {
     DSingleton(constructor as any);
   };
 }
+
+export { DController };

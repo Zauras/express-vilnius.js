@@ -1,6 +1,4 @@
-export function DSingleton<TClass extends { new (...args: any[]): {} }>(
-  constructor: TClass
-): TClass {
+function DSingleton<TClass extends { new (...args: any[]): {} }>(constructor: TClass): TClass {
   let instance: any;
 
   // Create a new constructor function that wraps the original constructor.
@@ -19,3 +17,5 @@ export function DSingleton<TClass extends { new (...args: any[]): {} }>(
   // Return the new constructor function, which now acts as a singleton
   return NewConstructor as TClass;
 }
+
+export { DSingleton };

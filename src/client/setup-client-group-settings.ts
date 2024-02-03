@@ -1,4 +1,4 @@
-import { IClientClass, IClientsGroupSettings } from "./types";
+import { IClientClass, IClientsGroupSettings } from "#/client/types";
 
 function setupClientsGroup(clients: IClientClass[], config: IClientsGroupSettings) {
   clients.forEach(client => {
