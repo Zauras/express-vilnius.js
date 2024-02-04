@@ -1,6 +1,6 @@
 {
   "name": "express-vilnius",
-  "version": "0.0.1-alpha",
+  "version": "0.0.2-alpha",
   "description": "Meta-framework combining utilities for express.js, axios, class-validator to provide lightweight but classic MVC experience based usage on decorators.",
   "engines": {
     "npm": "~10",
@@ -28,14 +28,14 @@
     "decorators",
     "api",
     "axios",
-    "class-validator]"
+    "class-validator"
   ],
   "author": "Joris Medeisis",
   "license": "MIT",
   "homepage": "https://github.com/Zauras/express-vilnius.js#readme",
   "exports": {
     ".": "./dist/index.js",
-    "./utils": "./dist/utils/index.js",
+    "./common": "./dist/common/index.js",
     "./controller": "./dist/controller/index.js",
     "./client": "./dist/client/index.js"
   },
