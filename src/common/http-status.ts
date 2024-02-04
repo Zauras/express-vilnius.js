@@ -1,4 +1,14 @@
-export const HttpStatus = {
+type IResponseStatusGroup = Record<string, number>;
+
+type IHttpStatus = {
+  Info: IResponseStatusGroup;
+  Success: IResponseStatusGroup;
+  Redirect: IResponseStatusGroup;
+  ClientError: IResponseStatusGroup;
+  ServerError: IResponseStatusGroup;
+};
+
+export const HttpStatus: IHttpStatus = {
   Info: {
     CONTINUE_100: 100,
     SWITCH_PROTOCOL_101: 101,

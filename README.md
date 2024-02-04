@@ -7,9 +7,9 @@ What if... express.js would have perks of NestJs without DP errors nagging and w
 
 Controller usage (receiving requests):
 ```
-import express, { Request, Response } from "express";
+import express from "express";
 import { registerControllers, HttpStatus,
-    DController, DGet, DPost, DValidateBody} from "express-vilnius";
+    DController, DHttpGet, DHttpPost, DValidateBody} from "express-vilnius";
 import { IsEmail, IsNotEmpty, Length } from "class-validator";
 
 const app = express();
@@ -24,7 +24,7 @@ export class CreateFileDto {
 
 @DController("/example-controller") 
 export class ExampleController {
-  @DGet("/example-file") 
+  @DHttpGet("/example-file") 
   // full URL will be: {your-host}/api/v1/example-group/example-controller/example-file
   async getExample(req: IRequest) {
     return {
@@ -33,7 +33,7 @@ export class ExampleController {
     };
   }
 
-  @DPost("/example-file")
+  @DHttpPost("/example-file")
   @DValidateBody(CreateFileDto)
   async postExample(req: IRequest): IControllerResp<{ id: string }> {
     return {
@@ -48,8 +48,8 @@ Client usage (sending requests):
 ```
 import {
   EHttpMethod,
-  DRequest,
-  DRequest,
+  DClient,
+  DSendRequest,
   IReqMethodReturn
 } from "express-vilnius"
 
@@ -64,7 +64,7 @@ type ICreateUserResult = {
 
 @DClient({ baseUri: "/example-user-micro-service" })
 export class UserMicroServiceClient {
-  @DRequest<ICreateUserResult, ICreateUserInput>({
+  @DSendRequest<ICreateUserResult, ICreateUserInput>({
     method: EHttpMethod.Post,
     uri: "/user"
   })

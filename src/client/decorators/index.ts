@@ -1,2 +1,2 @@
 export * from "./client.decorator";
-export * from "./request.decorator";
+export * from "./send-request.decorator";
