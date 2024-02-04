@@ -1,6 +1,6 @@
 {
   "name": "express-vilnius",
-  "version": "0.0.3-alpha",
+  "version": "0.0.4-alpha",
   "description": "Meta-framework combining utilities for express.js, axios, class-validator to provide lightweight but classic MVC experience based usage on decorators.",
   "engines": {
     "npm": "~10",
@@ -9,6 +9,12 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./common": "./dist/common/index.js",
+    "./controller": "./dist/controller/index.js",
+    "./client": "./dist/client/index.js"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -33,12 +39,6 @@
   "author": "Joris Medeisis",
   "license": "MIT",
   "homepage": "https://github.com/Zauras/express-vilnius.js#readme",
-  "exports": {
-    ".": "./dist/index.js",
-    "./common": "./dist/common/index.js",
-    "./controller": "./dist/controller/index.js",
-    "./client": "./dist/client/index.js"
-  },
   "scripts": {
     "build": "tsup",
     "test": "echo \"Error: no test specified\" && exit 1"
