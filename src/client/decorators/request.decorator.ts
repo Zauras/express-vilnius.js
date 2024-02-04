@@ -3,7 +3,7 @@ import axios, { AxiosRequestConfig } from "axios";
 import { IClientClass, IReqMethodReturnDto } from "#/client/types";
 import { EHttpMethod } from "#/common/http-methods";
 
-function DRequest<TRespResult, TReqInput = undefined>(config: {
+export function DRequest<TRespResult, TReqInput = undefined>(config: {
   method: EHttpMethod;
   uri: string;
 }) {
@@ -44,5 +44,3 @@ function DRequest<TRespResult, TReqInput = undefined>(config: {
     };
   };
 }
-
-export { DRequest };
