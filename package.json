@@ -3,8 +3,7 @@
   "version": "0.0.5-alpha",
   "description": "Meta-framework combining utilities for express.js, axios, class-validator to provide lightweight but classic MVC experience based usage on decorators.",
   "engines": {
-    "npm": "~10",
-    "node": "~20"
+    "node": ">=16.20.0"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
