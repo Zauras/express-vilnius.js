@@ -1,9 +1,9 @@
 {
   "name": "express-vilnius",
-  "version": "0.0.6-alpha",
+  "version": "0.0.7-alpha",
   "description": "Meta-framework combining utilities for express.js, axios, class-validator to provide lightweight but classic MVC experience based usage on decorators.",
   "engines": {
-    "node": ">=16.20.0"
+    "node": ">=18.17.0"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
